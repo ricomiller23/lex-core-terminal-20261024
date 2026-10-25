@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Search, HeartPulse, ShieldAlert, FileCode2, TerminalSquare, X } from "lucide-react";
+import { Sparkles, Search, HeartPulse, ShieldAlert, FileCode2, TerminalSquare, X } from "lucide-react";
 
 interface MobileDrawerProps {
   activeTab: string;
@@ -14,6 +14,7 @@ export function MobileDrawer({ activeTab, setActiveTab, isOpen, onClose }: Mobil
   if (!isOpen) return null;
 
   const navItems = [
+    { id: "builder", label: "Autonomous Case Builder", icon: Sparkles, badge: "Goal & Files" },
     { id: "research", label: "Deep Case Law Studio", icon: Search, badge: "CourtListener" },
     { id: "clinical", label: "Atlas Clinical & Demands", icon: HeartPulse, badge: "EveOS Engine" },
     { id: "auditor", label: "Nightly Auditor & Gaps", icon: ShieldAlert, badge: "Diligence" },
@@ -39,8 +40,8 @@ export function MobileDrawer({ activeTab, setActiveTab, isOpen, onClose }: Mobil
               <p className="text-xs text-slate-400">Select operational studio</p>
             </div>
             <button
-              id="btn-close-drawer"
-              data-testid="btn-close-drawer"
+              id="mobile-drawer-close"
+              data-testid="mobile-drawer-close"
               onClick={onClose}
               className="p-2 text-slate-400 hover:text-white rounded-lg bg-slate-800/60 min-h-[44px] min-w-[44px] flex items-center justify-center"
             >

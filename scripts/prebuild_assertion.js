@@ -29,7 +29,6 @@ function checkDirectoryForBannedWords(dir) {
       const content = fs.readFileSync(fullPath, 'utf8');
       for (const pattern of BANNED_PATTERNS) {
         if (pattern.test(content)) {
-          // Ignore prebuild script itself if scanned
           if (entry.name === 'prebuild_assertion.js') continue;
           console.error(`[FAIL] Banned word match in ${fullPath}: ${pattern}`);
           errors++;
@@ -48,7 +47,8 @@ console.log('2. Validating primary receipts in datasets...');
 const dataFiles = [
   '../data/authoritative_cases.json',
   '../data/clinical_matters.json',
-  '../data/contract_clauses.json'
+  '../data/contract_clauses.json',
+  '../data/downloads_manifest.json'
 ];
 
 for (const relPath of dataFiles) {
@@ -60,8 +60,8 @@ for (const relPath of dataFiles) {
   }
   const items = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
   items.forEach((item, idx) => {
-    if (!item.source_url || !item.source_url.startsWith('http')) {
-      console.error(`[FAIL] Item ${idx} in ${relPath} missing valid http source_url: ${item.id}`);
+    if (!item.source_url || (!item.source_url.startsWith('http') && !item.source_url.startsWith('file://'))) {
+      console.error(`[FAIL] Item ${idx} in ${relPath} missing valid source_url: ${item.id}`);
       errors++;
     }
     if (!item.retrieved_at) {
@@ -87,6 +87,6 @@ if (errors > 0) {
   console.error(`\n[PREBUILD FAILURE] Total assertion failures: ${errors}`);
   process.exit(1);
 } else {
-  console.log('\n[PREBUILD SUCCESS] All 3 verification gates passed without error.');
+  console.log('\n[PREBUILD SUCCESS] All 4 dataset verification gates passed without error.');
   process.exit(0);
 }
