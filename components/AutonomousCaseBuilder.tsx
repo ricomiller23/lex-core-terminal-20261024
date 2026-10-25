@@ -56,6 +56,11 @@ interface DiscoveredCase {
 
 const OBJECTIVE_PRESETS = [
   {
+    label: "Ira Gaines & GRNH Fraud Action",
+    text: "Prosecute Ira Jeffrey Gaines and affiliated conduits (Casa de Dinero, Big Thunder LLC, Paula Marie Poe) for Section 5 strict liability illegal distributions (107,361,209 unregistered shares), SEC Rule 10b-5 scheme liability under Lorenzo, fraudulent conveyance under UVTA, and alter-ego veil piercing to seize liquidation proceeds in BBVA Compass Bank."
+  },
+
+  {
     label: 'M&A Fraud & Clawback',
     text: 'Analyze seller indemnification exposure, fraudulent representations in disclosure schedules, and buyer clawback remedies under Delaware Chancery precedent regarding material adverse effects.'
   },
