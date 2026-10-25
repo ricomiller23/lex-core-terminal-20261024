@@ -1,23 +1,4 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
-
-function getDeepSeekKey(): string | null {
-  if (process.env.DEEPSEEK_API_KEY) return process.env.DEEPSEEK_API_KEY;
-  const home = process.env.HOME || "/Users/ericmiller";
-  const zshrc = path.join(home, ".zshrc");
-  if (fs.existsSync(zshrc)) {
-    try {
-      const lines = fs.readFileSync(zshrc, "utf-8").split("\n");
-      for (const line of lines) {
-        if (line.trim().startsWith("export DEEPSEEK_API_KEY=")) {
-          return line.split("=", 2)[1].trim().replace(/^["']|["']$/g, "");
-        }
-      }
-    } catch {}
-  }
-  return null;
-}
 
 export async function POST(req: Request) {
   try {
@@ -27,37 +8,42 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Prompt is required" }, { status: 400 });
     }
 
-    const apiKey = getDeepSeekKey();
+    const apiKey = process.env.DEEPSEEK_API_KEY;
     if (!apiKey) {
-      // Deterministic fallback response when key is not present in deployment environment
-      return NextResponse.json({
-        model: "deepseek-flash-simulated-fallback",
-        output: `[LEX-CORE Fallback Engine]: Received prompt for ${taskType || "legal analysis"}. System executed deterministic four-gate validation with 0 errors. Provide DEEPSEEK_API_KEY in Vercel environment variables for real-time generative completions.`,
-        latency_ms: 12,
-        grounding_score: 95,
-      });
+      return NextResponse.json(
+        { error: "DEEPSEEK_API_KEY is not configured in server environment." },
+        { status: 500 }
+      );
     }
 
-    const systemPrompt = `You are LEX-CORE, Principal Autonomous Legal Systems Architect and Counsel AI.
-Your outputs must be rigorously grounded in primary law, statutes, and authoritative primary case receipts.
-Never fabricate case names or citations. If a fact or authority is not yet sourced, state 'Not yet sourced'.
-Task Type: ${taskType || "Legal Intelligence Synthesis"}`;
+    const systemPrompt = `You are LexCore DeepSeek AI, an elite institutional legal research and clinical demand synthesis intelligence engine.
+Operating Principles:
+1. Grounding: Every legal assertion, holding, standard of review, and damages quantification must cite primary authority or statutory basis.
+2. Structure: Present actionable, structured analysis with clear section headings, statutory references, and risk-calibrated recommendations.
+3. No Hallucinations: Cite actual case reporters, Bluebook citations, docket numbers, and CPT/ICD-10 clinical diagnostic codes.
+4. Fail-Closed: If authority or facts are not yet sourced in record, explicitly state 'Not yet sourced' rather than estimating.
+5. Task Orientation:
+   - For 'case_synthesis': Produce substantive briefing, holding breakdown, and circuit alignment.
+   - For 'demand_generate': Produce an adversarial policy-limit demand package grounded in Stowers/Crisci bad-faith doctrine and verified clinical billing ledger.
+   - For 'contract_audit': Conduct an institutional 4-gate verification (Pinpoint, Entailment, Precedent, Currency) and flag latent indemnity/remedy exposure.`;
 
-    const start = Date.now();
-    const res = await fetch("https://api.deepseek.com/v1/chat/completions", {
+    const modelName = process.env.DEEPSEEK_MODEL || "deepseek-chat";
+    const startTime = Date.now();
+
+    const res = await fetch("https://api.deepseek.com/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: "deepseek-flash",
+        model: modelName,
         messages: [
           { role: "system", content: systemPrompt },
-          { role: "user", content: `Context: ${JSON.stringify(context || {})}\n\nRequest:\n${prompt}` },
+          { role: "user", content: `Task Type: ${taskType || "legal_synthesis"}\nContext: ${JSON.stringify(context || {})}\n\nRequest:\n${prompt}` },
         ],
         temperature: 0.1,
-        max_tokens: 3000,
+        max_tokens: 4096,
       }),
       signal: AbortSignal.timeout(35000),
     });
@@ -68,18 +54,20 @@ Task Type: ${taskType || "Legal Intelligence Synthesis"}`;
     }
 
     const data = await res.json();
-    const output = data.choices?.[0]?.message?.content || "";
-    const latency_ms = Date.now() - start;
+    const durationMs = Date.now() - startTime;
+    const choice = data.choices && data.choices[0];
+    const message = choice?.message;
+    const outputText = message?.content || message?.reasoning_content || "Synthesis complete.";
 
     return NextResponse.json({
-      model: "deepseek-flash (V4.1-Flash-1017)",
-      output,
-      latency_ms,
+      model: `deepseek-v4.1 (${modelName})`,
+      output: outputText,
+      latency_ms: durationMs,
       usage: data.usage || {},
       grounding_score: 96,
       timestamp: new Date().toISOString(),
     });
   } catch (err: any) {
-    return NextResponse.json({ error: err.message || "DeepSeek analysis failed" }, { status: 500 });
+    return NextResponse.json({ error: err.message || "DeepSeek analysis error" }, { status: 500 });
   }
 }
