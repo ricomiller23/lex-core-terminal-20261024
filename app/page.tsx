@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import authoritativeCases from '../data/authoritative_cases.json';
 import clinicalMatters from '../data/clinical_matters.json';
 import contractClauses from '../data/contract_clauses.json';
@@ -23,6 +23,29 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<'builder' | 'grnh' | 'research' | 'clinical' | 'auditor' | 'verifier' | 'mcp'>('builder');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedCaseForModal, setSelectedCaseForModal] = useState<any | null>(null);
+  const [isCompanionMode, setIsCompanionMode] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('companion') === '1' || params.get('tab') === 'grnh') {
+        setActiveTab('grnh');
+        setIsCompanionMode(true);
+      }
+
+      try {
+        const channel = new BroadcastChannel('grnh_lexcore_sync');
+        channel.onmessage = (event) => {
+          if (event.data?.type === 'ANALYZE_TARGET') {
+            setActiveTab('grnh');
+          }
+        };
+        return () => channel.close();
+      } catch {
+        // Ignored
+      }
+    }
+  }, []);
 
   const casesCount = authoritativeCases.length;
   const mattersCount = clinicalMatters.length;
@@ -39,6 +62,24 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#070a13] text-slate-100 flex flex-col antialiased selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden">
+      {/* Companion Mode Quick Bar */}
+      {isCompanionMode && (
+        <div className="bg-gradient-to-r from-cyan-950/90 to-slate-950/90 border-b border-cyan-500/40 px-4 py-2 flex items-center justify-between text-xs font-mono">
+          <div className="flex items-center gap-2 text-cyan-300">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>LEXCORE AI DATA & LAW ANALYZER &bull; CONCURRENT COMPANION MODE</span>
+          </div>
+          <a
+            href="https://grnh-forensics.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-slate-400 hover:text-white underline flex items-center gap-1"
+          >
+            Connected to grnh-forensics.vercel.app ↗
+          </a>
+        </div>
+      )}
+
       {/* Top Header */}
       <Header
         activeTab={activeTab}

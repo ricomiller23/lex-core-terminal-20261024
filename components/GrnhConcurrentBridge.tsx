@@ -78,28 +78,19 @@ export function GrnhConcurrentBridge({
   onSelectCase?: (c: any) => void;
 }) {
   const [activeTargetIndex, setActiveTargetIndex] = useState(0);
+  const [customTarget, setCustomTarget] = useState<BridgeTarget | null>(null);
   const [splitViewMode, setSplitViewMode] = useState(false);
   const [bridgeStatus, setBridgeStatus] = useState<'CONNECTED' | 'CHECKING'>('CHECKING');
   const [analyzingTarget, setAnalyzingTarget] = useState(false);
   const [liveLawOutput, setLiveLawOutput] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
-  const activeTarget = BRIDGE_TARGETS[activeTargetIndex];
+  const activeTarget = customTarget || BRIDGE_TARGETS[activeTargetIndex];
 
-  useEffect(() => {
-    // Check GRNH Forensics connection
-    const timer = setTimeout(() => {
-      setBridgeStatus('CONNECTED');
-    }, 800);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handleAnalyzeTarget = async (idx: number) => {
-    setActiveTargetIndex(idx);
+  const executeAnalysis = async (target: BridgeTarget) => {
     setAnalyzingTarget(true);
     setLiveLawOutput(null);
 
-    const target = BRIDGE_TARGETS[idx];
     try {
       const res = await fetch('/api/deepseek-analyze', {
         method: 'POST',
@@ -129,6 +120,72 @@ Provide trial counsel with:
     } finally {
       setAnalyzingTarget(false);
     }
+  };
+
+  useEffect(() => {
+    // Check GRNH Forensics connection
+    const timer = setTimeout(() => {
+      setBridgeStatus('CONNECTED');
+    }, 800);
+
+    // BroadcastChannel sync listener
+    let channel: BroadcastChannel | null = null;
+    try {
+      channel = new BroadcastChannel('grnh_lexcore_sync');
+      channel.onmessage = (event) => {
+        if (event.data?.type === 'ANALYZE_TARGET' && event.data.target) {
+          const t = event.data.target;
+          const matchIdx = BRIDGE_TARGETS.findIndex((bt) => bt.name.toLowerCase().includes(t.name.split(' (')[0].toLowerCase()));
+          if (matchIdx !== -1) {
+            setActiveTargetIndex(matchIdx);
+            setCustomTarget(null);
+            executeAnalysis(BRIDGE_TARGETS[matchIdx]);
+          } else {
+            const dynamicTarget: BridgeTarget = {
+              name: t.name,
+              category: t.category || 'Forensic Issuance',
+              shares: t.shares || 'Tracked',
+              statute: t.statute || 'Securities Act § 5(a)/(c) Strict Liability',
+              precedent: t.precedent || 'SEC v. CMKM Diamonds, Inc., 729 F.3d 1248 (9th Cir. 2013)',
+              summary: t.summary || 'Transaction under investigation in GRNH Forensics.'
+            };
+            setCustomTarget(dynamicTarget);
+            executeAnalysis(dynamicTarget);
+          }
+        }
+      };
+    } catch {
+      // Ignored
+    }
+
+    const handleWindowMsg = (event: MessageEvent) => {
+      if (event.data?.type === 'ANALYZE_TARGET' && event.data.target) {
+        const t = event.data.target;
+        const dynamicTarget: BridgeTarget = {
+          name: t.name,
+          category: t.category || 'Forensic Issuance',
+          shares: t.shares || 'Tracked',
+          statute: t.statute || 'Securities Act § 5(a)/(c) Strict Liability',
+          precedent: t.precedent || 'SEC v. CMKM Diamonds, Inc., 729 F.3d 1248 (9th Cir. 2013)',
+          summary: t.summary || 'Transaction under investigation in GRNH Forensics.'
+        };
+        setCustomTarget(dynamicTarget);
+        executeAnalysis(dynamicTarget);
+      }
+    };
+    window.addEventListener('message', handleWindowMsg);
+
+    return () => {
+      clearTimeout(timer);
+      if (channel) channel.close();
+      window.removeEventListener('message', handleWindowMsg);
+    };
+  }, []);
+
+  const handleAnalyzeTarget = (idx: number) => {
+    setActiveTargetIndex(idx);
+    setCustomTarget(null);
+    executeAnalysis(BRIDGE_TARGETS[idx]);
   };
 
   const handleCopyAnalysis = () => {
