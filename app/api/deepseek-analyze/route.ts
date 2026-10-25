@@ -24,7 +24,7 @@ Operating Principles:
 4. Fail-Closed: If authority or facts are not yet sourced in record, explicitly state 'Not yet sourced' rather than estimating.
 5. Task Orientation:
    - For 'case_synthesis': Produce substantive briefing, holding breakdown, and circuit alignment.
-   - For 'demand_generate': Produce an adversarial policy-limit demand package grounded in Stowers/Crisci bad-faith doctrine and verified clinical billing ledger.
+   - For 'demand_generate': Produce an adversarial policy-limit demand package grounded in Stowers/Crisci bad-faith doctrine and authoritative clinical billing ledger.
    - For 'contract_audit': Conduct an institutional 4-gate verification (Pinpoint, Entailment, Precedent, Currency) and flag latent indemnity/remedy exposure.`;
 
     const modelName = process.env.DEEPSEEK_MODEL || "deepseek-chat";
