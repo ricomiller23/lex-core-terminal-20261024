@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Scale, ExternalLink, Menu, X, Shield, Cpu } from "lucide-react";
+import { Scale, ExternalLink, Menu, X, Shield, Cpu, Activity } from "lucide-react";
 
 interface HeaderProps {
   activeTab: string;
@@ -50,16 +50,30 @@ export function Header({
               </span>
             </div>
             <p className="text-[11px] text-slate-400 hidden sm:block">
-              Unified Legal Intelligence & Case Law Research Engine
+              Concurrent Data & Law Analyzer for GRNH Forensics
             </p>
           </div>
         </div>
       </div>
 
       {/* Right Controls & Telemetry */}
-      <div className="flex items-center gap-2.5 sm:gap-3">
-        <div className="hidden md:flex items-center gap-2 px-2.5 py-1 rounded-full bg-slate-900/80 border border-slate-800 text-xs">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <div className="flex items-center gap-2 sm:gap-3">
+        {/* GRNH Forensics Live Companion Badge */}
+        <a
+          id="header-grnh-companion-btn"
+          href="https://grnh-forensics.vercel.app/"
+          target="_blank"
+          rel="noreferrer"
+          className="px-2.5 py-1.5 text-xs rounded-lg bg-emerald-950/40 hover:bg-emerald-900/60 text-emerald-300 border border-emerald-800/50 transition flex items-center gap-1.5 min-h-[44px]"
+          title="Open Concurrent GRNH Forensics Workspace"
+        >
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="font-mono text-[11px] font-medium hidden md:inline">GRNH Forensics Active</span>
+          <span className="font-mono text-[11px] font-medium md:hidden">GRNH</span>
+          <ExternalLink className="w-3 h-3 text-emerald-400/80" />
+        </a>
+
+        <div className="hidden lg:flex items-center gap-2 px-2.5 py-1 rounded-full bg-slate-900/80 border border-slate-800 text-xs">
           <span className="text-slate-400">Cases Sourced:</span>
           <span className="font-mono font-semibold text-emerald-400">{casesCount}</span>
           <span className="text-slate-600">|</span>
@@ -70,7 +84,7 @@ export function Header({
         <a
           id="btn-github-link"
           data-testid="btn-github-link"
-          href="https://github.com/ricomiller23"
+          href="https://github.com/ricomiller23/lex-core-terminal-20261024"
           target="_blank"
           rel="noreferrer"
           className="px-3 py-1.5 text-xs rounded-lg bg-slate-800/90 hover:bg-slate-700 text-slate-200 transition flex items-center gap-1.5 border border-slate-700/80 min-h-[44px]"

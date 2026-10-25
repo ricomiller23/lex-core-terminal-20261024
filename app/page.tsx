@@ -10,16 +10,17 @@ import { MobileDrawer } from '../components/MobileDrawer';
 import { BottomNav } from '../components/BottomNav';
 import { CaseDetailModal } from '../components/CaseDetailModal';
 import { AutonomousCaseBuilder } from '../components/AutonomousCaseBuilder';
+import { GrnhConcurrentBridge } from '../components/GrnhConcurrentBridge';
 import { CaseResearchStudio } from '../components/CaseResearchStudio';
 import { ClinicalDemandStudio } from '../components/ClinicalDemandStudio';
 import { AuditorRadar } from '../components/AuditorRadar';
 import { HarveyVerifier } from '../components/HarveyVerifier';
 import JudicexMcpWorkbench from '../components/JudicexMcpWorkbench';
 
-import { Sparkles, Search, HeartPulse, ShieldAlert, FileCode2, TerminalSquare } from 'lucide-react';
+import { Sparkles, Activity, Search, HeartPulse, ShieldAlert, FileCode2, TerminalSquare } from 'lucide-react';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'builder' | 'research' | 'clinical' | 'auditor' | 'verifier' | 'mcp'>('builder');
+  const [activeTab, setActiveTab] = useState<'builder' | 'grnh' | 'research' | 'clinical' | 'auditor' | 'verifier' | 'mcp'>('builder');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedCaseForModal, setSelectedCaseForModal] = useState<any | null>(null);
 
@@ -28,6 +29,7 @@ export default function Home() {
 
   const studios = [
     { id: 'builder', label: 'Case Builder & Ingest', icon: Sparkles, badge: 'Downloads & AI' },
+    { id: 'grnh', label: 'GRNH Forensics Bridge', icon: Activity, badge: 'Concurrent' },
     { id: 'research', label: 'Case Law Research', icon: Search, badge: 'CourtListener' },
     { id: 'clinical', label: 'Clinical & Demands', icon: HeartPulse, badge: 'EveOS Atlas' },
     { id: 'auditor', label: 'Nightly Diligence', icon: ShieldAlert, badge: 'Gap Radar' },
@@ -91,6 +93,14 @@ export default function Home() {
             <AutonomousCaseBuilder
               onSelectCase={(caseItem) => setSelectedCaseForModal(caseItem)}
               onNavigateToTab={(tab) => setActiveTab(tab as any)}
+            />
+          </section>
+        )}
+
+        {activeTab === 'grnh' && (
+          <section id="studio-grnh-bridge" aria-label="GRNH Forensics Concurrent Bridge">
+            <GrnhConcurrentBridge
+              onSelectCase={(caseItem) => setSelectedCaseForModal(caseItem)}
             />
           </section>
         )}

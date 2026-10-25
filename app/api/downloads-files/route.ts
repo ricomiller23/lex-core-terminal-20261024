@@ -3,6 +3,16 @@ import fs from "fs";
 import path from "path";
 import manifestData from "@/data/downloads_manifest.json";
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
+};
+
+export async function OPTIONS() {
+  return NextResponse.json({}, { headers: corsHeaders });
+}
+
 export async function GET(req: Request) {
   try {
     const url = new URL(req.url);
@@ -21,7 +31,7 @@ export async function GET(req: Request) {
             content,
             source: "Local Downloads Directory",
             retrieved_at: new Date().toISOString()
-          });
+          }, { headers: corsHeaders });
         } catch (readErr) {
           // fallback to manifest
         }
@@ -35,10 +45,10 @@ export async function GET(req: Request) {
           content: item.excerpt,
           source: "Downloads Indexed Manifest",
           retrieved_at: item.retrieved_at
-        });
+        }, { headers: corsHeaders });
       }
 
-      return NextResponse.json({ error: "File not found" }, { status: 404 });
+      return NextResponse.json({ error: "File not found" }, { status: 404, headers: corsHeaders });
     }
 
     // Otherwise return listing
@@ -84,8 +94,8 @@ export async function GET(req: Request) {
       total: files.length,
       files,
       timestamp: new Date().toISOString()
-    });
+    }, { headers: corsHeaders });
   } catch (err: any) {
-    return NextResponse.json({ error: err.message || "Failed to list downloads" }, { status: 500 });
+    return NextResponse.json({ error: err.message || "Failed to list downloads" }, { status: 500, headers: corsHeaders });
   }
 }

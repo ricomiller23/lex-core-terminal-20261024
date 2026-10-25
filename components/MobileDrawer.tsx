@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Sparkles, Search, HeartPulse, ShieldAlert, FileCode2, TerminalSquare, X } from "lucide-react";
+import { Sparkles, Search, HeartPulse, ShieldAlert, FileCode2, TerminalSquare, Activity, X } from "lucide-react";
 
 interface MobileDrawerProps {
   activeTab: string;
@@ -15,6 +15,7 @@ export function MobileDrawer({ activeTab, setActiveTab, isOpen, onClose }: Mobil
 
   const navItems = [
     { id: "builder", label: "Autonomous Case Builder", icon: Sparkles, badge: "Goal & Files" },
+    { id: "grnh", label: "GRNH Concurrent Bridge", icon: Activity, badge: "Companion" },
     { id: "research", label: "Deep Case Law Studio", icon: Search, badge: "CourtListener" },
     { id: "clinical", label: "Atlas Clinical & Demands", icon: HeartPulse, badge: "EveOS Engine" },
     { id: "auditor", label: "Nightly Auditor & Gaps", icon: ShieldAlert, badge: "Diligence" },
@@ -82,8 +83,8 @@ export function MobileDrawer({ activeTab, setActiveTab, isOpen, onClose }: Mobil
         </div>
 
         <div className="border-t border-slate-800/80 pt-4 text-xs text-slate-500">
-          <p>LEX-CORE Unified Engine v1.0</p>
-          <p className="text-[11px] text-slate-400 mt-1">Grounding: CourtListener + DeepSeek</p>
+          <p>LEX-CORE Concurrent Engine v1.0</p>
+          <p className="text-[11px] text-slate-400 mt-1">Paired with grnh-forensics.vercel.app</p>
         </div>
       </div>
     </div>

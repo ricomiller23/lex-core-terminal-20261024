@@ -1,6 +1,16 @@
 import { NextResponse } from "next/server";
 import casesData from "@/data/authoritative_cases.json";
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
+};
+
+export async function OPTIONS() {
+  return NextResponse.json({}, { headers: corsHeaders });
+}
+
 async function executeCaseSearch(query: string, jurisdiction?: string) {
   const cleanQuery = query.trim().toLowerCase();
   
@@ -76,13 +86,13 @@ export async function GET(req: Request) {
     const jurisdiction = url.searchParams.get("jurisdiction") || url.searchParams.get("court") || undefined;
 
     if (!query) {
-      return NextResponse.json({ error: "Query parameter 'q' is required" }, { status: 400 });
+      return NextResponse.json({ error: "Query parameter 'q' is required" }, { status: 400, headers: corsHeaders });
     }
 
     const data = await executeCaseSearch(query, jurisdiction);
-    return NextResponse.json(data);
+    return NextResponse.json(data, { headers: corsHeaders });
   } catch (err: any) {
-    return NextResponse.json({ error: err.message || "Case research failed" }, { status: 500 });
+    return NextResponse.json({ error: err.message || "Case research failed" }, { status: 500, headers: corsHeaders });
   }
 }
 
@@ -93,12 +103,12 @@ export async function POST(req: Request) {
     const jurisdiction = body.jurisdiction;
 
     if (!query || typeof query !== "string") {
-      return NextResponse.json({ error: "Query string is required" }, { status: 400 });
+      return NextResponse.json({ error: "Query string is required" }, { status: 400, headers: corsHeaders });
     }
 
     const data = await executeCaseSearch(query, jurisdiction);
-    return NextResponse.json(data);
+    return NextResponse.json(data, { headers: corsHeaders });
   } catch (err: any) {
-    return NextResponse.json({ error: err.message || "Case research failed" }, { status: 500 });
+    return NextResponse.json({ error: err.message || "Case research failed" }, { status: 500, headers: corsHeaders });
   }
 }
