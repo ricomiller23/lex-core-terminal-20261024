@@ -1,0 +1,76 @@
+[
+  {
+    "id": "clause-coc-01",
+    "section_title": "Section 8.05: Change of Control & Acceleration Covenants",
+    "agreement_type": "Senior Secured Credit Facility Agreement",
+    "borrower": "Apex Global Logistics Inc.",
+    "agent_bank": "JPMorgan Chase Bank, N.A.",
+    "effective_date": "2024-06-15",
+    "original_clause_text": "Upon the occurrence of a Change of Control, the Commitments shall immediately terminate and all Loans, together with accrued and unpaid interest and all other Obligations, shall become immediately due and payable without presentment, demand, protest or other notice of any kind.",
+    "counterparty_redline_text": "Upon the occurrence of a Change of Control, the Administrative Agent may, and at the request of the Required Lenders shall, provide sixty (60) days prior written notice before exercising remedies, during which period Borrower may cure such occurrence by providing replacement credit enhancement acceptable to Administrative Agent.",
+    "analysis": "The proposed redline materially alters senior lender rights by introducing a 60-day standstill and conditional cure right for Change of Control events. This conflicts with standard syndicated credit terms and risks subverting senior secured priority.",
+    "four_gate_verification": {
+      "gate_a_coordinates": {
+        "status": "PASS",
+        "detail": "Verified at Section 8.05, word/document.xml xpath //w:p[w:pPr/w:pStyle/@w:val='Section8.05']",
+        "pinpoint": "Credit Agreement p. 94, lines 12-28"
+      },
+      "gate_b_semantic_entailment": {
+        "status": "PASS",
+        "detail": "Cross-encoder entailment score: 0.942. The counterparty redline strictly negates automatic acceleration.",
+        "threshold": "0.850"
+      },
+      "gate_c_precedent_authority": {
+        "status": "PASS",
+        "detail": "Governed by New York law (Section 10.14). N.Y. U.C.C. § 9-601 preserves strict enforcement of acceleration covenants.",
+        "statute_receipt": "https://www.nysenate.gov/legislation/laws/UCC/9-601"
+      },
+      "gate_d_temporal_currency": {
+        "status": "PASS",
+        "detail": "Amendment No. 2 dated 2025-11-01 did not supersede Section 8.05. Current operative version confirmed.",
+        "sec_filing_receipt": "https://www.sec.gov/edgar/searchedgar/companysearch"
+      }
+    },
+    "risk_level": "CRITICAL RISK",
+    "recommended_action": "Reject counterparty amendment. Re-anchor to market standard immediate acceleration upon change of beneficial ownership exceeding 35%.",
+    "source_url": "https://www.sec.gov/edgar",
+    "retrieved_at": "2026-10-24T23:25:00Z"
+  },
+  {
+    "id": "clause-indem-02",
+    "section_title": "Section 9.02: Indemnification & Survival of Representations",
+    "agreement_type": "Stock Purchase Agreement",
+    "target_company": "Pacifica Cloud Infrastructure Corp.",
+    "buyer": "Vanguard Technology Holdings LLC",
+    "effective_date": "2025-03-20",
+    "original_clause_text": "The representations and warranties of Seller contained in this Agreement shall survive the Closing for a period of eighteen (18) months; provided, that the Fundamental Representations shall survive until sixty (60) days following the expiration of the applicable statute of limitations.",
+    "counterparty_redline_text": "The representations and warranties of Seller contained in this Agreement shall survive the Closing for a period of twelve (12) months; provided, that the Fundamental Representations shall survive for a period of thirty-six (36) months from Closing.",
+    "analysis": "The redline reduces the general survival basket from 18 to 12 months and caps fundamental representation survival at 36 months, replacing the market standard statute of limitations survival under Delaware General Corporation Law (DGCL § 251).",
+    "four_gate_verification": {
+      "gate_a_coordinates": {
+        "status": "PASS",
+        "detail": "Verified at Section 9.02, paragraph 442, page 61",
+        "pinpoint": "SPA p. 61, § 9.02"
+      },
+      "gate_b_semantic_entailment": {
+        "status": "PASS",
+        "detail": "Cross-encoder entailment score: 0.918. Survival period truncated.",
+        "threshold": "0.850"
+      },
+      "gate_c_precedent_authority": {
+        "status": "PASS",
+        "detail": "Delaware Court of Chancery enforces contractual survival limitations (GRT, Inc. v. Marathon GTF Technology, Ltd., 2011 WL 2682898).",
+        "statute_receipt": "https://courts.delaware.gov/chancery/"
+      },
+      "gate_d_temporal_currency": {
+        "status": "PASS",
+        "detail": "Draft Turn 3 dated 2026-10-18. Valid active negotiation turn.",
+        "sec_filing_receipt": "https://www.sec.gov/edgar"
+      }
+    },
+    "risk_level": "HIGH ATTENTION",
+    "recommended_action": "Counter with 18 months general survival and maintain DGCL statute of limitations survival for capitalization, authority, and tax representations.",
+    "source_url": "https://www.sec.gov/edgar",
+    "retrieved_at": "2026-10-24T23:25:00Z"
+  }
+]

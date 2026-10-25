@@ -1,0 +1,165 @@
+[
+  {
+    "id": "matter-pi-tx-8419",
+    "case_title": "Commercial Freight Broadside Collision — Travis County 53rd Judicial District",
+    "matter_number": "D-1-GN-26-004812",
+    "venue": "Travis County District Court, Austin, Texas",
+    "jurisdiction": "Texas State Court",
+    "incident_date": "2026-04-14",
+    "statute_of_limitations_date": "2028-04-14",
+    "liability_profile": "Clear liability. Defendant commercial driver failed to yield right-of-way at intersection, broadsiding claimant vehicle at 48 MPH. Police crash report TX CR-3 confirms citation for Texas Transp. Code § 545.151.",
+    "insurance_limits": {
+      "carrier": "Great American Insurance Group",
+      "policy_limit_per_person": "$1,000,000",
+      "umbrella_excess": "$5,000,000",
+      "stowers_eligible": true,
+      "stowers_citation": "15 S.W.2d 544 (Tex. Comm'n App. 1929)"
+    },
+    "clinical_timeline": [
+      {
+        "id": "enc-01",
+        "date": "2026-04-14",
+        "provider": "St. David's South Austin Medical Center (Emergency Department)",
+        "encounter_type": "EMERGENCY_ROOM",
+        "diagnoses": [
+          { "code": "S72.001A", "desc": "Fracture of head of right femur, initial encounter for closed fracture" },
+          { "code": "S22.41XA", "desc": "Multiple fractures of ribs, right side, initial encounter" }
+        ],
+        "procedures": [
+          { "code": "99285", "desc": "Emergency department visit, high medical decision making", "billed": 4850.00, "allowed": 2100.00, "medicare_allowable": 1420.00 },
+          { "code": "73502", "desc": "Radiologic examination, hip, unilateral, complete", "billed": 1820.00, "allowed": 640.00, "medicare_allowable": 380.00 }
+        ],
+        "notes": "Patient extricated from vehicle. Severe right groin deformity and acute respiratory guarding. Admitted to acute trauma surgery.",
+        "source_doc_span": "p. 1-4, St. David's ER Intake Record #49102"
+      },
+      {
+        "id": "enc-02",
+        "date": "2026-04-15",
+        "provider": "Texas Orthopedics Surgery Center",
+        "encounter_type": "SURGICAL_INTERVENTION",
+        "diagnoses": [
+          { "code": "S72.001A", "desc": "Displaced subcapital right femoral fracture" }
+        ],
+        "procedures": [
+          { "code": "27236", "desc": "Open treatment of femoral fracture, proximal end, neck, with internal fixation", "billed": 42500.00, "allowed": 18900.00, "medicare_allowable": 12400.00 },
+          { "code": "01210", "desc": "Anesthesia for open procedure on hip joint", "billed": 6200.00, "allowed": 2400.00, "medicare_allowable": 1550.00 }
+        ],
+        "notes": "ORIF right hip executed with cannulated screw fixation. Surgical notes confirm traumatic bone fragments consistent with direct side impact.",
+        "source_doc_span": "p. 8-12, Operative Report Dr. Vance MD"
+      },
+      {
+        "id": "enc-03",
+        "date": "2026-05-18",
+        "provider": "Austin Physical Therapy Specialists",
+        "encounter_type": "REHABILITATIVE_CARE",
+        "diagnoses": [
+          { "code": "M62.81", "desc": "Muscle weakness (generalized), post-surgical hip ORIF" }
+        ],
+        "procedures": [
+          { "code": "97110", "desc": "Therapeutic exercises to develop strength and endurance (36 units)", "billed": 8640.00, "allowed": 3800.00, "medicare_allowable": 2900.00 }
+        ],
+        "notes": "Patient completed 18 sessions of ambulation and weight-bearing retraining.",
+        "source_doc_span": "p. 1-18, PT Discharge Summary"
+      }
+    ],
+    "treatment_gaps": [
+      {
+        "gap_id": "gap-01",
+        "start_date": "2026-06-01",
+        "end_date": "2026-07-08",
+        "days": 37,
+        "classification": "EXPLAINED_GEOGRAPHIC_FINANCIAL",
+        "evidence_explanation": "Claimant's auto-insurer terminated PIP coverage on May 31. Claimant was required to apply for Travis County Healthcare District financial assistance and undergo secondary insurance verification before specialized outpatient aquatic therapy commenced on July 9.",
+        "pre_explanation_source": "Travis County Medical Access Plan Approval Letter dated 2026-06-28",
+        "adjuster_risk_severity": "MODERATE",
+        "mitigation_strategy": "Pre-emptively attach MAP financial verification letter as Exhibit D to the Demand Package to foreclose defense argument of voluntary care abandonment."
+      }
+    ],
+    "economic_damages_summary": {
+      "total_billed_medical": "$64,010.00",
+      "total_allowed_or_paid": "$27,840.00",
+      "total_medicare_allowable": "$18,650.00",
+      "asserted_hospital_lien": "$18,900.00 (Tex. Prop. Code Ch. 55 filed in Travis Co. Deed Records)",
+      "lost_wages_asserted": "$22,400.00 (14 weeks at $1,600/wk confirmed by Form W-2)",
+      "projected_future_medical": "$45,000.00 (Hardware removal and arthroplasty conversion per Dr. Vance Life Care Plan)"
+    },
+    "demand_recommendation": {
+      "policy_limit_target": "$1,000,000.00",
+      "demand_type": "STOWERS EXTRA-CONTRACTUAL POLICY-LIMIT DEMAND",
+      "response_deadline_days": 21,
+      "statutory_authority": "Tex. Civ. Prac. & Rem. Code Ann. § 41.001 et seq.; G.A. Stowers Furn. Co., 15 S.W.2d at 547",
+      "receipt_url": "https://statutes.capitol.texas.gov/Docs/CP/htm/CP.41.htm"
+    },
+    "source_url": "https://www.traviscountytx.gov/district-clerk",
+    "retrieved_at": "2026-10-24T23:25:00Z"
+  },
+  {
+    "id": "matter-medmal-ca-2026",
+    "case_title": "Undiagnosed Spinal Epidural Abscess — Superior Court of California, County of Orange",
+    "matter_number": "30-2026-01492011-CU-MM-CJC",
+    "venue": "Orange County Superior Court, Santa Ana, California",
+    "jurisdiction": "California State Court",
+    "incident_date": "2026-02-10",
+    "statute_of_limitations_date": "2027-02-10",
+    "liability_profile": "Emergency Department physician failed to order emergency spinal MRI despite classic triad: progressive focal back pain, systemic fever (102.4F), and elevated inflammatory markers (CRP 184 mg/L, ESR 92 mm/hr). 36-hour diagnostic delay led to permanent T10 incomplete paraplegia.",
+    "insurance_limits": {
+      "carrier": "The Doctors Company (TDC Specialty)",
+      "policy_limit_per_person": "$2,000,000",
+      "umbrella_excess": "$10,000,000",
+      "stowers_eligible": false,
+      "california_micra_limit": "$500,000 non-economic (Cal. Civ. Code § 3333.2 2026 escalation)",
+      "crisci_eligible": true,
+      "crisci_citation": "66 Cal. 2d 425 (Cal. 1967)"
+    },
+    "clinical_timeline": [
+      {
+        "id": "enc-mm-01",
+        "date": "2026-02-10",
+        "provider": "Orange Coast Regional Medical Center (Emergency Department)",
+        "encounter_type": "MISSED_DIAGNOSIS_ENCOUNTER",
+        "diagnoses": [
+          { "code": "M54.50", "desc": "Low back pain, unspecified (Misdiagnosed as mechanical lumbago)" }
+        ],
+        "procedures": [
+          { "code": "99284", "desc": "Emergency department visit, detailed medical decision making", "billed": 2950.00, "allowed": 1400.00, "medicare_allowable": 980.00 }
+        ],
+        "notes": "Patient presented with midline thoracic-lumbar tenderness and fever. Discharged on oral NSAIDs without MRI examination.",
+        "source_doc_span": "p. 3-6, ED Chart #88210"
+      },
+      {
+        "id": "enc-mm-02",
+        "date": "2026-02-12",
+        "provider": "UC Irvine Medical Center (Spine Trauma Center)",
+        "encounter_type": "EMERGENCY_SURGERY",
+        "diagnoses": [
+          { "code": "G06.1", "desc": "Intraspinal abscess and granuloma (Epidural abscess T8-T11)" },
+          { "code": "G82.20", "desc": "Paraplegia, unspecified" }
+        ],
+        "procedures": [
+          { "code": "63267", "desc": "Laminectomy with drainage of intramedullary lesion, thoracic", "billed": 88400.00, "allowed": 41200.00, "medicare_allowable": 28600.00 },
+          { "code": "72146", "desc": "MRI thoracic spine with and without contrast", "billed": 3800.00, "allowed": 1200.00, "medicare_allowable": 740.00 }
+        ],
+        "notes": "Emergency T8-T11 decompression laminectomy and pus evacuation. Cord compressed for over 36 hours.",
+        "source_doc_span": "p. 1-14, UCI Operative & Pathology Records"
+      }
+    ],
+    "treatment_gaps": [],
+    "economic_damages_summary": {
+      "total_billed_medical": "$382,100.00",
+      "total_allowed_or_paid": "$164,500.00",
+      "total_medicare_allowable": "$98,400.00",
+      "asserted_hospital_lien": "$78,200.00 (Cal. Civ. Code § 3045.1 Hospital Lien Act)",
+      "lost_wages_asserted": "$145,000.00 (Past lost earnings as software architect)",
+      "projected_future_medical": "$2,850,000.00 (Comprehensive Life Care Plan by Strategic Healthcare Partners)"
+    },
+    "demand_recommendation": {
+      "policy_limit_target": "$2,000,000.00",
+      "demand_type": "CALIFORNIA CRISCI POLICY-LIMIT POLICY TENDER",
+      "response_deadline_days": 30,
+      "statutory_authority": "Cal. Civ. Code § 3333.2; Crisci v. Security Ins. Co., 66 Cal. 2d 425",
+      "receipt_url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=3333.2"
+    },
+    "source_url": "https://www.occourts.org/online-services/case-access",
+    "retrieved_at": "2026-10-24T23:25:00Z"
+  }
+]

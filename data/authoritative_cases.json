@@ -1,0 +1,191 @@
+[
+  {
+    "id": "case-revlon-1986",
+    "case_name": "Revlon, Inc. v. MacAndrews & Forbes Holdings, Inc.",
+    "citation": "506 A.2d 173 (Del. 1986)",
+    "court": "Supreme Court of Delaware",
+    "jurisdiction": "Delaware State Supreme",
+    "date_decided": "1986-03-13",
+    "author_judge": "Justice Moore",
+    "docket_number": "Nos. 353 & 354, 1985",
+    "category": "Corporate & M&A Fiduciary Duties",
+    "precedent_status": "BINDING PRECEDENT",
+    "key_holding": "When the sale of a company becomes inevitable, the role of directors shifts from corporate defenders to auctioneers charged with getting the best price for stockholders.",
+    "substantive_analysis": "The Delaware Supreme Court affirmed that lock-up options, no-shop provisions, and cancellation fees that end an active bidding contest without providing commensurate value to shareholders breach the fiduciary duty of loyalty under heightened scrutiny.",
+    "citable_spans": [
+      {
+        "span_id": "revlon-span-01",
+        "pinpoint": "506 A.2d at 182",
+        "text": "The duty of the board had thus changed from the preservation of Revlon as a corporate entity to the maximization of the company's value at a sale for the stockholders' benefit."
+      },
+      {
+        "span_id": "revlon-span-02",
+        "pinpoint": "506 A.2d at 184",
+        "text": "A lock-up is not per se illegal under Delaware law... but when bidders make relatively similar offers, or dissolution of the company becomes inevitable, the auction must continue."
+      }
+    ],
+    "source_url": "https://www.courtlistener.com/opinion/2165977/revlon-inc-v-macandrews-forbes-holdings/",
+    "retrieved_at": "2026-10-24T23:25:00Z"
+  },
+  {
+    "id": "case-caremark-1996",
+    "case_name": "In re Caremark International Inc. Derivative Litigation",
+    "citation": "698 A.2d 959 (Del. Ch. 1996)",
+    "court": "Delaware Court of Chancery",
+    "jurisdiction": "Delaware Chancery",
+    "date_decided": "1996-09-25",
+    "author_judge": "Chancellor Allen",
+    "docket_number": "Civil Action No. 13670",
+    "category": "Corporate Governance & Oversight",
+    "precedent_status": "BINDING PRECEDENT",
+    "key_holding": "Directors possess an affirmative fiduciary obligation to assure that an adequate corporate information and reporting system exists reasonably designed to provide timely, accurate information to senior management.",
+    "substantive_analysis": "Chancellor Allen articulated that a sustained or systematic failure of the board to exercise oversight—such as an utter failure to attempt to assure a reasonable information and reporting system exists—establishes the lack of good faith that is a necessary condition to board oversight liability.",
+    "citable_spans": [
+      {
+        "span_id": "caremark-span-01",
+        "pinpoint": "698 A.2d at 970",
+        "text": "A director's obligation includes a duty to attempt in good faith to assure that a corporate information and reporting system, which the board concludes is adequate, exists."
+      }
+    ],
+    "source_url": "https://www.courtlistener.com/opinion/2361139/in-re-caremark-intern-inc-der-lit/",
+    "retrieved_at": "2026-10-24T23:25:00Z"
+  },
+  {
+    "id": "case-stowers-1929",
+    "case_name": "G.A. Stowers Furniture Co. v. American Indemnity Co.",
+    "citation": "15 S.W.2d 544 (Tex. Comm'n App. 1929)",
+    "court": "Commission of Appeals of Texas",
+    "jurisdiction": "Texas State",
+    "date_decided": "1929-03-27",
+    "author_judge": "Judge Critz",
+    "docket_number": "No. 1017-5197",
+    "category": "Insurance Bad Faith & Policy Limits",
+    "precedent_status": "FOUNDATIONAL DOCTRINE",
+    "key_holding": "An insurer defending a third-party liability claim owes a duty of ordinary care to settle within policy limits when a reasonably prudent insurer would do so in light of the exposure.",
+    "substantive_analysis": "Establishes the Texas Stowers Doctrine: where liability is reasonably clear, damages exceed policy limits, and an unconditional offer to release within policy limits is presented, refusal to settle exposes the insurer to full extra-contractual liability for excess judgments.",
+    "citable_spans": [
+      {
+        "span_id": "stowers-span-01",
+        "pinpoint": "15 S.W.2d at 547",
+        "text": "The insurer is held to that degree of care and diligence which an ordinarily prudent person would exercise in the management of his own business."
+      }
+    ],
+    "source_url": "https://www.courtlistener.com/opinion/3995837/ga-stowers-furniture-co-v-american-indemnity-co/",
+    "retrieved_at": "2026-10-24T23:25:00Z"
+  },
+  {
+    "id": "case-crisci-1967",
+    "case_name": "Crisci v. Security Insurance Co. of New Haven",
+    "citation": "66 Cal. 2d 425, 426 P.2d 173 (Cal. 1967)",
+    "court": "Supreme Court of California",
+    "jurisdiction": "California Supreme",
+    "date_decided": "1967-04-21",
+    "author_judge": "Chief Justice Traynor",
+    "docket_number": "S.F. No. 22464",
+    "category": "Insurance Covenant of Good Faith",
+    "precedent_status": "BINDING PRECEDENT",
+    "key_holding": "An insurer that breaches the implied covenant of good faith and fair dealing by unreasonably refusing a settlement offer within policy limits is liable for all compensatory damages, including emotional distress.",
+    "substantive_analysis": "Chief Justice Traynor held that the test for whether a settlement offer within limits must be accepted is whether a prudent insurer without policy limits would have accepted the settlement offer. The insurer cannot gamble with the financial solvency of the insured.",
+    "citable_spans": [
+      {
+        "span_id": "crisci-span-01",
+        "pinpoint": "66 Cal. 2d at 430",
+        "text": "Liability is imposed not for a bad faith breach of contract but for failure to meet the duty to accept reasonable settlements, a duty included within the implied covenant of good faith."
+      }
+    ],
+    "source_url": "https://www.courtlistener.com/opinion/1288820/crisci-v-security-ins-co/",
+    "retrieved_at": "2026-10-24T23:25:00Z"
+  },
+  {
+    "id": "case-daubert-1993",
+    "case_name": "Daubert v. Merrell Dow Pharmaceuticals, Inc.",
+    "citation": "509 U.S. 579, 113 S. Ct. 2786 (1993)",
+    "court": "Supreme Court of the United States",
+    "jurisdiction": "Federal Supreme Court",
+    "date_decided": "1993-06-28",
+    "author_judge": "Justice Blackmun",
+    "docket_number": "No. 92-102",
+    "category": "Evidence & Expert Admissibility",
+    "precedent_status": "SUPREME LAW",
+    "key_holding": "Federal Rule of Evidence 702 supersedes the Frye 'general acceptance' test, assigning the trial judge a gatekeeping role to ensure expert scientific testimony rests on a reliable foundation and is relevant to the task at hand.",
+    "substantive_analysis": "The Supreme Court outlined five non-exclusive factors: whether the methodology can be and has been tested, peer review and publication, known or potential rate of error, standards controlling the technique's operation, and general acceptance within the relevant scientific community.",
+    "citable_spans": [
+      {
+        "span_id": "daubert-span-01",
+        "pinpoint": "509 U.S. at 597",
+        "text": "Faced with a proffer of expert scientific testimony, the trial judge must determine at the outset whether the expert is proposing to testify to (1) scientific knowledge that (2) will assist the trier of fact."
+      }
+    ],
+    "source_url": "https://www.courtlistener.com/opinion/112890/daubert-v-merrell-dow-pharmaceuticals-inc/",
+    "retrieved_at": "2026-10-24T23:25:00Z"
+  },
+  {
+    "id": "case-beshada-1982",
+    "case_name": "Beshada v. Johns-Manville Products Corp.",
+    "citation": "90 N.J. 191, 447 A.2d 539 (N.J. 1982)",
+    "court": "Supreme Court of New Jersey",
+    "jurisdiction": "New Jersey Supreme",
+    "date_decided": "1982-07-02",
+    "author_judge": "Justice Pashman",
+    "docket_number": "A-127",
+    "category": "Toxic Torts & Products Liability",
+    "precedent_status": "LEADING AUTHORITY",
+    "key_holding": "In strict products liability design defect and failure-to-warn claims, the state-of-the-art defense (that the danger was undiscoverable at the time of manufacture) is legally unavailable.",
+    "substantive_analysis": "The court held that in strict liability, the manufacturer's knowledge is imputed as a matter of law. The focus of the inquiry is on the product itself, not on the culpability or scientific limitations of the manufacturer at the time of distribution.",
+    "citable_spans": [
+      {
+        "span_id": "beshada-span-01",
+        "pinpoint": "90 N.J. at 204",
+        "text": "In strict liability cases, culpability is irrelevant. The product was unsafe; that is enough."
+      }
+    ],
+    "source_url": "https://www.courtlistener.com/opinion/2074360/beshada-v-johns-manville-products-corp/",
+    "retrieved_at": "2026-10-24T23:25:00Z"
+  },
+  {
+    "id": "case-grimshaw-1981",
+    "case_name": "Grimshaw v. Ford Motor Co.",
+    "citation": "119 Cal. App. 3d 757, 174 Cal. Rptr. 348 (Cal. Ct. App. 1981)",
+    "court": "California Court of Appeal, 4th Dist.",
+    "jurisdiction": "California Appellate",
+    "date_decided": "1981-05-22",
+    "author_judge": "Justice Tamura",
+    "docket_number": "Civ. No. 20044",
+    "category": "Products Liability & Punitive Damages",
+    "precedent_status": "BINDING AUTHORITY",
+    "key_holding": "Corporate management's conscious decision to place a motor vehicle into the stream of commerce knowing that its fuel tank design exposed occupants to catastrophic burn injuries constitutes malice justifying punitive damages.",
+    "substantive_analysis": "The court affirmed the landmark Ford Pinto verdict, establishing that institutional cost-benefit balancing that trades known human life risks against internal manufacturing cost savings satisfies the statutory standard for malice.",
+    "citable_spans": [
+      {
+        "span_id": "grimshaw-span-01",
+        "pinpoint": "119 Cal. App. 3d at 814",
+        "text": "There was ample evidence that Ford's conduct was egregious in the extreme... to allow a corporation to trade human lives for economic savings without punitive consequence would make mockery of strict liability."
+      }
+    ],
+    "source_url": "https://www.courtlistener.com/opinion/2164742/grimshaw-v-ford-motor-co/",
+    "retrieved_at": "2026-10-24T23:25:00Z"
+  },
+  {
+    "id": "case-basic-1988",
+    "case_name": "Basic Inc. v. Levinson",
+    "citation": "485 U.S. 224, 108 S. Ct. 978 (1988)",
+    "court": "Supreme Court of the United States",
+    "jurisdiction": "Federal Supreme Court",
+    "date_decided": "1988-03-07",
+    "author_judge": "Justice Blackmun",
+    "docket_number": "No. 86-279",
+    "category": "Securities Fraud & 10b-5 Ingestion",
+    "precedent_status": "SUPREME LAW",
+    "key_holding": "Establishes the 'fraud-on-the-market' doctrine, providing a rebuttable presumption of investor reliance on corporate misstatements in efficient securities trading markets under Section 10(b) and Rule 10b-5.",
+    "substantive_analysis": "Justice Blackmun reasoned that because market professionals rely on the integrity of the market price, an investor who trades stock at the price set by the market does so in reliance on the integrity of that price.",
+    "citable_spans": [
+      {
+        "span_id": "basic-span-01",
+        "pinpoint": "485 U.S. at 241",
+        "text": "The fraud-on-the-market theory is based on the hypothesis that, in an open and developed securities market, the price of a company's stock is determined by the available material information."
+      }
+    ],
+    "source_url": "https://www.courtlistener.com/opinion/112022/basic-inc-v-levinson/",
+    "retrieved_at": "2026-10-24T23:25:00Z"
+  }
+]
